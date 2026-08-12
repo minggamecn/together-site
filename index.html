@@ -3,7 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Together</title>
+<title>Together — a private map for your circle</title>
+<meta name="description" content="Together is a private location-sharing and chat app for small circles of friends. Up to five people, invite-only, no ads, no tracking.">
+<meta property="og:title" content="Together — a private map for your circle">
+<meta property="og:description" content="Find your people. Stay in the moment. Private location sharing and chat for up to five friends.">
+<meta property="og:type" content="website">
 <style>
   :root {
     --canvas: #F7F4ED;
@@ -12,57 +16,507 @@
     --muted: #6F7771;
     --line: #E5E1D8;
     --moss: #325C46;
+    --mint: #DCEBDE;
+    --lime: #CDEA79;
+    --peach: #F7C7A8;
+    --blue: #A8D8EA;
+    --violet: #C9B9E8;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
   body {
     background: var(--canvas);
     color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
     line-height: 1.6;
-    padding: 24px 18px 60px;
   }
-  main { margin: 0 auto; max-width: 640px; }
-  .eyebrow {
+  a { color: var(--moss); text-decoration: none; }
+  .wrap { margin: 0 auto; max-width: 1040px; padding: 0 22px; }
+
+  /* ---------- header ---------- */
+  header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 22px 0 10px;
+  }
+  .brand { align-items: center; display: flex; gap: 10px; }
+  .brand-mark {
+    align-items: center;
+    background: var(--ink);
+    border-radius: 12px;
+    color: var(--lime);
+    display: flex;
+    font-size: 17px;
+    font-weight: 900;
+    height: 34px;
+    justify-content: center;
+    width: 34px;
+  }
+  .brand-name {
+    color: var(--moss);
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 2.5px;
+  }
+  nav { display: flex; gap: 22px; }
+  nav a { font-size: 13px; font-weight: 700; }
+  nav a:hover { color: var(--ink); }
+
+  /* ---------- hero ---------- */
+  .hero {
+    align-items: center;
+    display: grid;
+    gap: 48px;
+    grid-template-columns: 1.05fr 0.95fr;
+    padding: 54px 0 30px;
+  }
+  .orbit {
+    align-items: center;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    display: flex;
+    height: 92px;
+    justify-content: center;
+    position: relative;
+    width: 92px;
+  }
+  .orbit .dot {
+    border: 3px solid var(--canvas);
+    border-radius: 50%;
+    height: 24px;
+    position: absolute;
+    width: 24px;
+  }
+  .dot-1 { background: var(--peach); left: -6px; top: 18px; }
+  .dot-2 { background: var(--blue); right: -2px; top: 8px; }
+  .dot-3 { background: var(--violet); bottom: -4px; right: 20px; }
+  .orbit .core {
+    align-items: center;
+    background: var(--ink);
+    border-radius: 50%;
+    color: var(--lime);
+    display: flex;
+    font-size: 18px;
+    font-weight: 900;
+    height: 40px;
+    justify-content: center;
+    width: 40px;
+  }
+  h1 {
+    font-size: clamp(38px, 5.5vw, 56px);
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    line-height: 1.06;
+    margin-top: 26px;
+  }
+  h1 .accent { color: var(--moss); }
+  .sub {
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.65;
+    margin-top: 18px;
+    max-width: 46ch;
+  }
+  .cta-row { align-items: center; display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+  .badge-soon {
+    align-items: center;
+    background: var(--ink);
+    border-radius: 14px;
+    color: var(--surface);
+    display: inline-flex;
+    font-size: 14px;
+    font-weight: 800;
+    gap: 9px;
+    padding: 13px 22px;
+  }
+  .badge-soon .pulse {
+    animation: pulse 2.2s ease-in-out infinite;
+    background: var(--lime);
+    border-radius: 50%;
+    height: 8px;
+    width: 8px;
+  }
+  @keyframes pulse { 0%,100% {opacity: 1;} 50% {opacity: 0.35;} }
+  .cta-note { color: var(--muted); font-size: 13px; font-weight: 700; }
+
+  /* ---------- phone mockup ---------- */
+  .phone-col { display: flex; justify-content: center; }
+  .phone {
+    background: var(--ink);
+    border-radius: 42px;
+    box-shadow: 0 24px 60px rgba(23, 32, 28, 0.18);
+    padding: 12px;
+    width: min(310px, 82vw);
+  }
+  .screen {
+    background:
+      radial-gradient(circle at 72% 24%, rgba(205, 234, 121, 0.35), transparent 42%),
+      radial-gradient(circle at 18% 70%, rgba(220, 235, 222, 0.9), transparent 55%),
+      repeating-linear-gradient(105deg, transparent 0 46px, rgba(50, 92, 70, 0.07) 46px 48px),
+      repeating-linear-gradient(15deg, transparent 0 64px, rgba(50, 92, 70, 0.06) 64px 66px),
+      #EEF2EA;
+    border-radius: 32px;
+    overflow: hidden;
+    padding: 14px;
+    position: relative;
+  }
+  .screen::before {
+    background: rgba(50, 92, 70, 0.12);
+    border-radius: 2px;
+    content: "";
+    display: block;
+    height: 4px;
+    margin: 0 auto 10px;
+    width: 68px;
+  }
+  .status-pill {
+    align-items: center;
+    background: var(--surface);
+    border-radius: 13px;
+    box-shadow: 0 6px 16px rgba(23, 32, 28, 0.1);
+    display: flex;
+    gap: 9px;
+    padding: 10px 12px;
+  }
+  .status-pill .lock {
+    align-items: center;
+    background: var(--lime);
+    border-radius: 10px;
+    display: flex;
+    flex: none;
+    font-size: 11px;
+    height: 26px;
+    justify-content: center;
+    width: 26px;
+  }
+  .status-pill b { display: block; font-size: 11px; }
+  .status-pill span { color: var(--muted); display: block; font-size: 9.5px; }
+  .map-area { height: 300px; position: relative; }
+  .pin {
+    align-items: center;
+    animation: float 5s ease-in-out infinite;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 8px 18px rgba(23, 32, 28, 0.22);
+    display: flex;
+    font-size: 12px;
+    font-weight: 900;
+    height: 40px;
+    justify-content: center;
+    position: absolute;
+    width: 40px;
+  }
+  .pin::after {
+    background: inherit;
+    border-radius: 50%;
+    bottom: -12px;
+    content: "";
+    height: 6px;
+    opacity: 0.35;
+    position: absolute;
+    width: 18px;
+  }
+  .pin-a { background: var(--peach); left: 18%; top: 26%; }
+  .pin-b { animation-delay: 1.4s; background: var(--blue); right: 16%; top: 44%; }
+  .pin-c { animation-delay: 2.6s; background: var(--violet); bottom: 16%; left: 34%; }
+  @keyframes float { 0%,100% {transform: translateY(0);} 50% {transform: translateY(-7px);} }
+  .share-btn {
+    align-items: center;
+    background: var(--ink);
+    border-radius: 13px;
+    color: var(--surface);
+    display: flex;
+    font-size: 12.5px;
+    font-weight: 800;
+    justify-content: center;
+    padding: 13px;
+  }
+
+  /* ---------- sections ---------- */
+  section { padding: 56px 0 0; }
+  .kicker {
     color: var(--moss);
     font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 1.2px;
+    font-weight: 900;
+    letter-spacing: 1.6px;
     text-transform: uppercase;
   }
-  h1 { font-size: 28px; font-weight: 900; margin: 6px 0 18px; }
-  p { font-size: 15px; }
-  ul { list-style: none; margin-top: 18px; }
-  li {
+  h2 {
+    font-size: clamp(26px, 3.4vw, 34px);
+    font-weight: 900;
+    letter-spacing: -0.6px;
+    margin-top: 8px;
+  }
+  .features {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    margin-top: 30px;
+  }
+  .feature {
     background: var(--surface);
     border: 1px solid var(--line);
-    border-radius: 16px;
-    margin-bottom: 10px;
+    border-radius: 20px;
+    padding: 24px 22px;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
   }
-  li a {
-    color: var(--moss);
-    display: block;
-    font-size: 15px;
-    font-weight: 700;
-    padding: 16px 20px;
-    text-decoration: none;
+  .feature:hover {
+    box-shadow: 0 14px 34px rgba(23, 32, 28, 0.08);
+    transform: translateY(-3px);
   }
-  footer { color: var(--muted); font-size: 12px; margin-top: 40px; }
+  .feature .glyph {
+    align-items: center;
+    border-radius: 13px;
+    display: flex;
+    font-size: 16px;
+    font-weight: 900;
+    height: 40px;
+    justify-content: center;
+    margin-bottom: 14px;
+    width: 40px;
+  }
+  .g-mint { background: var(--mint); color: var(--moss); }
+  .g-lime { background: var(--lime); color: var(--ink); }
+  .g-peach { background: var(--peach); color: var(--ink); }
+  .g-violet { background: var(--violet); color: var(--ink); }
+  .feature h3 { font-size: 15.5px; font-weight: 900; }
+  .feature p { color: var(--muted); font-size: 13.5px; line-height: 1.6; margin-top: 7px; }
+
+  /* ---------- how it works ---------- */
+  .steps {
+    counter-reset: step;
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    margin-top: 30px;
+  }
+  .step {
+    background: var(--mint);
+    border-radius: 20px;
+    padding: 24px 22px;
+  }
+  .step::before {
+    align-items: center;
+    background: var(--moss);
+    border-radius: 50%;
+    color: var(--surface);
+    content: counter(step);
+    counter-increment: step;
+    display: flex;
+    font-size: 13px;
+    font-weight: 900;
+    height: 30px;
+    justify-content: center;
+    margin-bottom: 13px;
+    width: 30px;
+  }
+  .step h3 { color: var(--moss); font-size: 15.5px; font-weight: 900; }
+  .step p { color: var(--moss); font-size: 13.5px; line-height: 1.6; margin-top: 6px; opacity: 0.85; }
+
+  /* ---------- privacy band ---------- */
+  .privacy-band {
+    background: var(--ink);
+    border-radius: 26px;
+    margin-top: 56px;
+    padding: 46px 40px;
+    text-align: center;
+  }
+  .privacy-band .kicker { color: var(--lime); }
+  .privacy-band h2 { color: var(--surface); }
+  .privacy-band p {
+    color: #B9C0BC;
+    font-size: 14.5px;
+    margin: 14px auto 0;
+    max-width: 62ch;
+  }
+  .privacy-band .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 22px;
+  }
+  .privacy-band .tag {
+    border: 1px solid rgba(205, 234, 121, 0.4);
+    border-radius: 999px;
+    color: var(--lime);
+    font-size: 12.5px;
+    font-weight: 800;
+    padding: 7px 15px;
+  }
+  .privacy-band .more { display: inline-block; color: var(--lime); font-size: 13px; font-weight: 800; margin-top: 24px; }
+  .privacy-band .more:hover { text-decoration: underline; }
+
+  /* ---------- footer ---------- */
+  footer { padding: 46px 0 40px; }
+  .foot-inner {
+    align-items: center;
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    justify-content: space-between;
+    padding-top: 26px;
+  }
+  .foot-links { display: flex; flex-wrap: wrap; gap: 18px; }
+  .foot-links a { font-size: 12.5px; font-weight: 700; }
+  .foot-links a:hover { color: var(--ink); }
+  .copyright { color: var(--muted); font-size: 12px; }
+
+  @media (max-width: 800px) {
+    .hero { gap: 40px; grid-template-columns: 1fr; padding-top: 36px; }
+    .phone-col { order: 2; }
+    .privacy-band { padding: 38px 24px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pin, .badge-soon .pulse { animation: none; }
+  }
 </style>
 </head>
 <body>
-<main>
-  <p class="eyebrow">Together</p>
-  <h1>Stay close to your circle</h1>
-  <p>
-    Together is a private location-sharing and chat app for small circles of
-    friends — up to five people, invite-only, with sharing you control.
-  </p>
-  <ul>
-    <li><a href="privacy.html">Privacy policy</a></li>
-    <li><a href="terms.html">Terms of service</a></li>
-    <li><a href="delete-account.html">Delete your account</a></li>
-  </ul>
-  <footer>Together · Support: ming.life@foxmail.com</footer>
-</main>
+<div class="wrap">
+
+  <header>
+    <div class="brand">
+      <div class="brand-mark">T</div>
+      <div class="brand-name">TOGETHER</div>
+    </div>
+    <nav>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="mailto:ming.life@foxmail.com">Support</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <div class="orbit" aria-hidden="true">
+        <span class="dot dot-1"></span>
+        <span class="dot dot-2"></span>
+        <span class="dot dot-3"></span>
+        <span class="core">T</span>
+      </div>
+      <h1>Find your people.<br><span class="accent">Stay in the moment.</span></h1>
+      <p class="sub">
+        Together is a private map and chat for the few people who matter
+        right now — up to five friends, invite-only. See where everyone is
+        while you're meeting up, then go back to being unfindable.
+      </p>
+      <div class="cta-row">
+        <span class="badge-soon"><span class="pulse"></span>Coming soon to Google Play</span>
+        <span class="cta-note">Free · No ads · No tracking</span>
+      </div>
+    </div>
+    <div class="phone-col">
+      <div class="phone" aria-hidden="true">
+        <div class="screen">
+          <div class="status-pill">
+            <span class="lock">●</span>
+            <span>
+              <b>Sharing while Together is open</b>
+              <span>Only visible to this circle</span>
+            </span>
+          </div>
+          <div class="map-area">
+            <span class="pin pin-a">MI</span>
+            <span class="pin pin-b">JU</span>
+            <span class="pin pin-c">AN</span>
+          </div>
+          <div class="share-btn">Share my location</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">Why Together</p>
+    <h2>Small on purpose</h2>
+    <div class="features">
+      <div class="feature">
+        <div class="glyph g-mint">5</div>
+        <h3>Five friends, max</h3>
+        <p>A circle holds up to five people and only opens with an invite
+        code. No followers, no discovery, no strangers.</p>
+      </div>
+      <div class="feature">
+        <div class="glyph g-lime">◎</div>
+        <h3>Location on your terms</h3>
+        <p>Sharing is off until you turn it on, and stops the moment you
+        say so. Server snapshots delete themselves after 15 minutes.</p>
+      </div>
+      <div class="feature">
+        <div class="glyph g-peach">✉</div>
+        <h3>Chat for right now</h3>
+        <p>Make the plan, find each other, done. Group chat lives beside
+        the map, built for tonight — not for archives.</p>
+      </div>
+      <div class="feature">
+        <div class="glyph g-violet">◇</div>
+        <h3>Safety built in</h3>
+        <p>Block, report, remove, or leave in two taps. Delete your account
+        — and everything with it — whenever you want.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">How it works</p>
+    <h2>Three steps to found</h2>
+    <div class="steps">
+      <div class="step">
+        <h3>Create your circle</h3>
+        <p>Name it after tonight, the trip, or the group chat that never
+        dies. You get a private invite code.</p>
+      </div>
+      <div class="step">
+        <h3>Share the code</h3>
+        <p>Codes are single-circle and expire after a week — the only way
+        in is being invited by someone already there.</p>
+      </div>
+      <div class="step">
+        <h3>Find each other</h3>
+        <p>Turn on sharing when you head out. Everyone appears on the same
+        map until you're together — then switch it off.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="privacy-band">
+    <p class="kicker">Privacy by design</p>
+    <h2>Your location is nobody's business model</h2>
+    <p>
+      Together runs no ads, embeds no analytics, and never sells data.
+      Your position is visible only to the circle you chose, encrypted in
+      transit, and enforced row-by-row in the database — even a signed-in
+      user can only ever read the circles they belong to.
+    </p>
+    <div class="tags">
+      <span class="tag">No ads</span>
+      <span class="tag">No trackers</span>
+      <span class="tag">No data sales</span>
+      <span class="tag">15-minute snapshots</span>
+      <span class="tag">Delete anytime</span>
+    </div>
+    <a class="more" href="privacy.html">Read the privacy policy →</a>
+  </div>
+
+  <footer>
+    <div class="foot-inner">
+      <div class="brand">
+        <div class="brand-mark">T</div>
+        <div class="brand-name">TOGETHER</div>
+      </div>
+      <div class="foot-links">
+        <a href="privacy.html">Privacy policy</a>
+        <a href="terms.html">Terms of service</a>
+        <a href="delete-account.html">Delete your account</a>
+        <a href="mailto:ming.life@foxmail.com">ming.life@foxmail.com</a>
+      </div>
+      <div class="copyright">© 2026 Ming Zhu</div>
+    </div>
+  </footer>
+
+</div>
 </body>
 </html>
