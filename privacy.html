@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Together — Privacy Policy</title>
+<style>
+  :root {
+    --canvas: #F7F4ED;
+    --surface: #FFFFFF;
+    --ink: #17201C;
+    --muted: #6F7771;
+    --line: #E5E1D8;
+    --moss: #325C46;
+    --mint: #DCEBDE;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    padding: 24px 18px 60px;
+  }
+  main { margin: 0 auto; max-width: 680px; }
+  .eyebrow {
+    color: var(--moss);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+  h1 { font-size: 28px; font-weight: 900; margin: 6px 0 4px; }
+  .updated { color: var(--muted); font-size: 13px; margin-bottom: 20px; }
+  h2 { font-size: 18px; font-weight: 800; margin: 30px 0 8px; }
+  h3 { font-size: 15px; font-weight: 800; margin: 18px 0 6px; }
+  p, li { font-size: 15px; }
+  ul { margin: 8px 0 8px 22px; }
+  table { border-collapse: collapse; margin: 10px 0; width: 100%; }
+  th, td {
+    border: 1px solid var(--line);
+    font-size: 14px;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: var(--mint); color: var(--moss); }
+  td { background: var(--surface); }
+  .note {
+    background: var(--mint);
+    border-radius: 14px;
+    color: var(--moss);
+    font-size: 14px;
+    margin: 14px 0;
+    padding: 14px 16px;
+  }
+  a { color: var(--moss); font-weight: 700; }
+  footer { color: var(--muted); font-size: 12px; margin-top: 40px; }
+</style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">Together</p>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Effective date: 12 August 2026</p>
+
+  <p>
+    Together is a private location-sharing and chat app for small circles of
+    friends, published by <strong>Ming Zhu</strong> (individual developer,
+    “we”, “us”). This policy explains what data the app handles, why, and the
+    controls you have. The short version: your location and messages are only
+    ever visible to the members of your invite-only circle, we run no ads and
+    no third-party analytics, and we never sell your data.
+  </p>
+
+  <h2>1. Data we collect</h2>
+  <table>
+    <tr><th>Data</th><th>What and why</th></tr>
+    <tr>
+      <td><strong>Account</strong></td>
+      <td>Your email address and a password (stored only as a secure hash),
+      used to create and sign in to your account.</td>
+    </tr>
+    <tr>
+      <td><strong>Profile</strong></td>
+      <td>A nickname and, if you choose to add one, a profile photo. Both are
+      visible to members of your circle.</td>
+    </tr>
+    <tr>
+      <td><strong>Precise location</strong></td>
+      <td>Only while you have location sharing turned on. Your live position
+      is streamed to your circle members, and a single snapshot (latitude,
+      longitude, accuracy, heading) is kept on the server so friends who open
+      the app shortly after can see where you were. <strong>Snapshots expire
+      after 15 minutes.</strong> Turning sharing off deletes your snapshot
+      immediately. Location sharing is off by default and never starts
+      without your action.</td>
+    </tr>
+    <tr>
+      <td><strong>Messages</strong></td>
+      <td>Chat messages you send to your circle, stored so your circle can
+      read them. You can delete your own messages at any time.</td>
+    </tr>
+    <tr>
+      <td><strong>Safety records</strong></td>
+      <td>If you block someone or file a report, we store the block, the
+      report reason, and — for message reports — a copy of the reported
+      message so we can review it even if it is later deleted.</td>
+    </tr>
+    <tr>
+      <td><strong>Technical logs</strong></td>
+      <td>Our infrastructure provider keeps short-lived request logs (such as
+      IP address and timestamps) for security and reliability, as any web
+      service does. We do not use them to profile you.</td>
+    </tr>
+  </table>
+
+  <h2>2. Who can see your data</h2>
+  <p>
+    Circles are invite-only and hold at most five people. Your location,
+    messages, nickname, and photo are visible only to members of your circle.
+    There is no public profile, no discovery, and no way for strangers to
+    find or follow you. You can see who is in your circle at any time, remove
+    yourself, and (if you created the circle) remove others.
+  </p>
+
+  <h2>3. What we don't do</h2>
+  <ul>
+    <li>We do not sell or rent your data, and never will.</li>
+    <li>We show no ads and use no advertising SDKs.</li>
+    <li>We use no third-party analytics and do not track you across apps.</li>
+    <li>We do not collect your contacts, and location is never collected in
+        the background beyond the sharing you turn on.</li>
+  </ul>
+
+  <h2>4. Service providers</h2>
+  <p>We use two service providers, acting on our instructions:</p>
+  <ul>
+    <li><strong>Supabase</strong> — hosts our database, authentication, file
+      storage, and realtime messaging. All the data in section 1 is processed
+      and stored on Supabase's cloud infrastructure, which may be located
+      outside your country. Supabase's own commitments are described in its
+      <a href="https://supabase.com/privacy">privacy policy</a> and data
+      processing addendum.</li>
+    <li><strong>OpenFreeMap</strong> — serves the map imagery in the app.
+      When the map loads, your device requests map tiles directly from
+      OpenFreeMap's servers; like any web request, this exposes your IP
+      address and the map area you are viewing to that server. No account
+      data is sent with these requests.</li>
+  </ul>
+
+  <h2>5. How long we keep data</h2>
+  <ul>
+    <li><strong>Location snapshots:</strong> at most 15 minutes; deleted
+        immediately when you stop sharing.</li>
+    <li><strong>Messages, profile, account:</strong> until you delete them or
+        delete your account.</li>
+    <li><strong>Safety reports:</strong> as long as needed to review and act
+        on them.</li>
+    <li><strong>Backups:</strong> residual copies in encrypted service
+        backups expire automatically within 30 days.</li>
+  </ul>
+
+  <h2>6. Your controls and rights</h2>
+  <ul>
+    <li><strong>Sharing controls:</strong> start and stop location sharing at
+        any time; leave a circle at any time; block and report members;
+        delete your own messages.</li>
+    <li><strong>Delete your account:</strong> in the app (Circle tab →
+        Delete account) or via our
+        <a href="delete-account.html">deletion page</a>. Deletion is
+        immediate and permanent.</li>
+    <li><strong>Export your data:</strong> email us and we will provide a
+        copy of your data in a portable format within 30 days.</li>
+  </ul>
+  <p>
+    If you are in the European Economic Area or the United Kingdom, you also
+    have the rights of access, rectification, erasure, restriction,
+    portability, and objection under the GDPR, and the right to complain to
+    your supervisory authority. Our legal bases are performance of a contract
+    (providing the service you signed up for) and legitimate interests
+    (keeping the service safe and secure). If you are a California resident,
+    the CCPA gives you rights to know, delete, and correct; we do not sell or
+    share personal information as the CCPA defines those terms.
+  </p>
+  <p>To exercise any of these rights, email us at the address below.</p>
+
+  <h2>7. Children</h2>
+  <p>
+    Together is not directed at children under 13 (or the higher minimum age
+    your country requires), and we do not knowingly collect data from them.
+    If you believe a child is using Together, contact us and we will delete
+    the account.
+  </p>
+
+  <h2>8. Security</h2>
+  <p>
+    All traffic between the app and our servers is encrypted in transit
+    (TLS). Access to data on the server is enforced per-row by database
+    security policies, so even a signed-in user can only ever read the
+    circles they belong to. Passwords are stored as salted hashes and are
+    never visible to us.
+  </p>
+
+  <div class="note">
+    Location sharing is designed for people who both agree to it. Never use
+    Together to track someone without their knowledge — it is against our
+    terms, and we act on reports.
+  </div>
+
+  <h2>9. Changes to this policy</h2>
+  <p>
+    If we make material changes, we will update this page and note the new
+    effective date above, and — for significant changes — tell you in the
+    app.
+  </p>
+
+  <h2>10. Contact</h2>
+  <p>
+    Ming Zhu (developer of Together)<br>
+    Email: <a href="mailto:ming.life@foxmail.com">ming.life@foxmail.com</a>
+  </p>
+
+  <footer>Together · <a href="index.html">Home</a> ·
+    <a href="terms.html">Terms of Service</a> ·
+    <a href="delete-account.html">Delete your account</a></footer>
+</main>
+</body>
+</html>
