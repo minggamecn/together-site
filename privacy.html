@@ -62,7 +62,7 @@
 <main>
   <p class="eyebrow">Together</p>
   <h1>Privacy Policy</h1>
-  <p class="updated">Effective date: 12 August 2026</p>
+  <p class="updated">Effective date: 17 August 2026</p>
 
   <p>
     Together is a private location-sharing and chat app for small circles of
@@ -102,6 +102,15 @@
       read them. You can delete your own messages at any time.</td>
     </tr>
     <tr>
+      <td><strong>Subscription status</strong></td>
+      <td>If you subscribe to Together Plus, the purchase itself is handled
+      entirely by Apple's App Store or Google Play — <strong>we never receive
+      your payment card or billing details.</strong> We keep only your
+      subscription's tier, status (active, grace, expired), store platform, a
+      store transaction reference, and its renewal date, so the app can
+      unlock Plus features for your circles.</td>
+    </tr>
+    <tr>
       <td><strong>Safety records</strong></td>
       <td>If you block someone or file a report, we store the block, the
       report reason, and — for message reports — a copy of the reported
@@ -134,7 +143,7 @@
   </ul>
 
   <h2>4. Service providers</h2>
-  <p>We use two service providers, acting on our instructions:</p>
+  <p>We use three service providers, acting on our instructions:</p>
   <ul>
     <li><strong>Supabase</strong> — hosts our database, authentication, file
       storage, and realtime messaging. All the data in section 1 is processed
@@ -147,6 +156,13 @@
       OpenFreeMap's servers; like any web request, this exposes your IP
       address and the map area you are viewing to that server. No account
       data is sent with these requests.</li>
+    <li><strong>RevenueCat</strong> — processes app-store purchase receipts
+      for Together Plus and tells our server whether your subscription is
+      active. It receives a random app user identifier and store purchase
+      tokens — never your name, email, or payment details. RevenueCat's
+      commitments are described in its
+      <a href="https://www.revenuecat.com/privacy">privacy policy</a>. If
+      you never subscribe, no data is sent to RevenueCat.</li>
   </ul>
 
   <h2>5. How long we keep data</h2>
@@ -161,6 +177,9 @@
         account.</li>
     <li><strong>Safety reports:</strong> as long as needed to review and act
         on them.</li>
+    <li><strong>Subscription records:</strong> while your subscription is
+        active and afterwards as long as required for accounting; deleted
+        with your account.</li>
     <li><strong>Backups:</strong> residual copies in encrypted service
         backups expire automatically within 30 days.</li>
   </ul>
