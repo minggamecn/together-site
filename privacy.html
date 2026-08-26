@@ -62,7 +62,7 @@
 <main>
   <p class="eyebrow">Together</p>
   <h1>Privacy Policy</h1>
-  <p class="updated">Effective date: 17 August 2026</p>
+  <p class="updated">Effective date: 26 August 2026</p>
 
   <p>
     Together is a private location-sharing and chat app for small circles of
@@ -87,28 +87,35 @@
       visible to members of your circle.</td>
     </tr>
     <tr>
-      <td><strong>Precise location</strong></td>
-      <td>Only while you have location sharing turned on. Your live position
-      is streamed to your circle members, and a single snapshot (latitude,
-      longitude, accuracy, heading) is kept on the server so friends who open
-      the app shortly after can see where you were. <strong>Snapshots expire
-      after 15 minutes.</strong> Turning sharing off deletes your snapshot
-      immediately. Location sharing is off by default and never starts
-      without your action.</td>
+      <td><strong>Approximate or precise location</strong></td>
+      <td>Only when you choose to share it. You can use approximate location
+      or precise location, depending on your device permission and the
+      in-app precision setting. For live sharing, your position is streamed
+      to your circle members and a snapshot (latitude, longitude, accuracy,
+      and heading when available) is kept on the server so friends who open
+      the app shortly afterwards can see where you were. <strong>Live
+      snapshots expire after 15 minutes.</strong> Turning live sharing off
+      deletes the snapshot immediately. Live sharing is off by default and
+      never starts without your action.</td>
     </tr>
     <tr>
-      <td><strong>Messages</strong></td>
-      <td>Chat messages you send to your circle, stored so your circle can
-      read them. You can delete your own messages at any time.</td>
+      <td><strong>Messages and dropped pins</strong></td>
+      <td>Chat messages you send to your circle are stored so your circle can
+      read them. If you choose to drop a pin, that message also stores its
+      approximate or precise latitude and longitude and, if you add one, its
+      name. Unlike a live-location snapshot, a dropped pin remains in chat
+      history until you delete it, delete your account, or it is removed by
+      the chat-retention limit described below. You can delete your own text
+      and pin messages at any time.</td>
     </tr>
     <tr>
       <td><strong>Subscription status</strong></td>
-      <td>If you subscribe to Together Plus, the purchase itself is handled
-      entirely by Apple's App Store or Google Play — <strong>we never receive
-      your payment card or billing details.</strong> We keep only your
-      subscription's tier, status (active, grace, expired), store platform, a
-      store transaction reference, and its renewal date, so the app can
-      unlock Plus features for your circles.</td>
+      <td>If Together Plus purchasing is available and you subscribe, the
+      purchase itself is handled entirely by Apple's App Store or Google Play
+      — <strong>we never receive your payment card or billing details.</strong>
+      We keep only your subscription's tier, status (active, grace, expired),
+      store platform, a store transaction reference, and its renewal date, so
+      the app can unlock Plus features for your circles.</td>
     </tr>
     <tr>
       <td><strong>Safety records</strong></td>
@@ -126,11 +133,12 @@
 
   <h2>2. Who can see your data</h2>
   <p>
-    Circles are invite-only and hold at most five people. Your location,
-    messages, nickname, and photo are visible only to members of your circle.
-    There is no public profile, no discovery, and no way for strangers to
-    find or follow you. You can see who is in your circle at any time, remove
-    yourself, and (if you created the circle) remove others.
+    Circles are invite-only. Free circles hold up to three people; circles
+    owned by a Together Plus subscriber hold up to eight. Your live location,
+    dropped pins, messages, nickname, and photo are visible only to members of
+    the relevant circle. There is no public profile, no discovery, and no way
+    for strangers to find or follow you. You can see who is in your circle at
+    any time, remove yourself, and (if you created the circle) remove others.
   </p>
 
   <h2>3. What we don't do</h2>
@@ -143,7 +151,7 @@
   </ul>
 
   <h2>4. Service providers</h2>
-  <p>We use four service providers, acting on our instructions:</p>
+  <p>We use three service providers, acting on our instructions:</p>
   <ul>
     <li><strong>Supabase</strong> — hosts our database, authentication, file
       storage, and realtime messaging. All the data in section 1 is processed
@@ -156,28 +164,25 @@
       OpenFreeMap's servers; like any web request, this exposes your IP
       address and the map area you are viewing to that server. No account
       data is sent with these requests.</li>
-    <li><strong>RevenueCat</strong> — processes app-store purchase receipts
-      for Together Plus and tells our server whether your subscription is
-      active. It receives a random app user identifier and store purchase
-      tokens — never your name, email, or payment details. RevenueCat's
-      commitments are described in its
-      <a href="https://www.revenuecat.com/privacy">privacy policy</a>. If
-      you never subscribe, no data is sent to RevenueCat.</li>
-    <li><strong>Resend</strong> — delivers our account emails, such as the
-      verification codes sent when you sign up or sign in. It receives your
-      email address and the content of those emails, and nothing else.
-      Resend's commitments are described in its
-      <a href="https://resend.com/legal/privacy-policy">privacy policy</a>.</li>
+    <li><strong>RevenueCat</strong> — if Together Plus purchasing is enabled,
+      processes app-store purchase receipts and tells our server whether your
+      subscription is active. It receives your account's random identifier
+      and store purchase tokens — never your name, email, or payment details.
+      RevenueCat's commitments are described in its
+      <a href="https://www.revenuecat.com/privacy">privacy policy</a>.
+      Nothing is sent to RevenueCat unless purchasing is enabled and you open
+      the Together Plus screen, buy a subscription, or restore purchases.</li>
   </ul>
 
   <h2>5. How long we keep data</h2>
   <ul>
     <li><strong>Location snapshots:</strong> at most 15 minutes; deleted
         immediately when you stop sharing.</li>
-    <li><strong>Messages:</strong> each circle keeps its most recent 1,000
-        messages and older ones are deleted automatically; your messages are
-        also deleted when you delete them individually or delete your
-        account.</li>
+    <li><strong>Messages and dropped pins:</strong> each circle keeps its most
+        recent 1,000 messages. Dropped-pin coordinates and names are part of
+        those messages and follow the same retention period. Older messages
+        are deleted automatically; your messages are also deleted when you
+        delete them individually or delete your account.</li>
     <li><strong>Profile and account:</strong> until you delete your
         account.</li>
     <li><strong>Safety reports:</strong> as long as needed to review and act
@@ -191,11 +196,12 @@
 
   <h2>6. Your controls and rights</h2>
   <ul>
-    <li><strong>Sharing controls:</strong> start and stop location sharing at
-        any time; leave a circle at any time; block and report members;
-        delete your own messages.</li>
+    <li><strong>Sharing controls:</strong> choose approximate or precise
+        location, start and stop live sharing at any time, and decide each
+        time whether to send a dropped pin; leave a circle at any time; block
+        and report members; delete your own text and pin messages.</li>
     <li><strong>Delete your account:</strong> in the app (Circle tab →
-        settings gear → Delete account) or via our
+        Delete account) or via our
         <a href="delete-account.html">deletion page</a>. Deletion is
         immediate and permanent.</li>
     <li><strong>Export your data:</strong> email us and we will provide a
