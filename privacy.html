@@ -62,7 +62,7 @@
 <main>
   <p class="eyebrow">Together</p>
   <h1>Privacy Policy</h1>
-  <p class="updated">Effective date: 26 August 2026</p>
+  <p class="updated">Effective date: 5 September 2026</p>
 
   <p>
     Together is a private location-sharing and chat app for small circles of
@@ -93,10 +93,14 @@
       in-app precision setting. For live sharing, your position is streamed
       to your circle members and a snapshot (latitude, longitude, accuracy,
       and heading when available) is kept on the server so friends who open
-      the app shortly afterwards can see where you were. <strong>Live
-      snapshots expire after 15 minutes.</strong> Turning live sharing off
-      deletes the snapshot immediately. Live sharing is off by default and
-      never starts without your action.</td>
+      the app shortly afterwards can see where you were. While sharing is
+      on, updates continue when the app is in the background so your circle
+      keeps seeing your current position — always with a visible indicator:
+      a persistent notification on Android, the system location indicator on
+      iOS. <strong>Live snapshots expire after 15 minutes.</strong> Turning
+      live sharing off stops all collection and deletes the snapshot
+      immediately. Live sharing is off by default and never starts without
+      your action.</td>
     </tr>
     <tr>
       <td><strong>Messages and dropped pins</strong></td>
@@ -124,6 +128,14 @@
       message so we can review it even if it is later deleted.</td>
     </tr>
     <tr>
+      <td><strong>Notification device ID and preferences</strong></td>
+      <td>If you enable notifications in the Global app, we associate a
+      random push-registration token with your account, device platform,
+      language, and your message/circle notification choices. The token is
+      used only to deliver notifications you requested; it is not used for
+      analytics, advertising, or tracking across apps.</td>
+    </tr>
+    <tr>
       <td><strong>Technical logs</strong></td>
       <td>Our infrastructure provider keeps short-lived request logs (such as
       IP address and timestamps) for security and reliability, as any web
@@ -146,12 +158,15 @@
     <li>We do not sell or rent your data, and never will.</li>
     <li>We show no ads and use no advertising SDKs.</li>
     <li>We use no third-party analytics and do not track you across apps.</li>
-    <li>We do not collect your contacts, and location is never collected in
-        the background beyond the sharing you turn on.</li>
+    <li>We do not collect your contacts. Location is collected only during
+        a share you started — that includes while the app is in the
+        background, shown by a persistent notification (Android) or the
+        system location indicator (iOS) — and collection stops the moment
+        you turn sharing off.</li>
   </ul>
 
   <h2>4. Service providers</h2>
-  <p>We use three service providers, acting on our instructions:</p>
+  <p>We use the following service providers, acting on our instructions:</p>
   <ul>
     <li><strong>Supabase</strong> — hosts our database, authentication, file
       storage, and realtime messaging. All the data in section 1 is processed
@@ -172,6 +187,13 @@
       <a href="https://www.revenuecat.com/privacy">privacy policy</a>.
       Nothing is sent to RevenueCat unless purchasing is enabled and you open
       the Together Plus screen, buy a subscription, or restore purchases.</li>
+    <li><strong>Google Firebase Cloud Messaging and Apple Push Notification
+      service</strong> — if you enable notifications in the Global app, route
+      notification text and a random device registration token to your phone.
+      Payloads may identify the relevant circle/message/request so a tap opens
+      the right screen, but they never contain location coordinates or invite
+      codes. Google and Apple process this delivery under their respective
+      privacy terms.</li>
   </ul>
 
   <h2>5. How long we keep data</h2>
@@ -189,7 +211,11 @@
         on them.</li>
     <li><strong>Subscription records:</strong> while your subscription is
         active and afterwards as long as required for accounting; deleted
-        with your account.</li>
+      with your account.</li>
+    <li><strong>Notification tokens:</strong> while notifications are enabled.
+        Turning notifications off or signing out asks our service to unregister
+        the token and invalidates it on the device. Failed or stale tokens are
+        disabled; any retained record is removed when the account is deleted.</li>
     <li><strong>Backups:</strong> residual copies in encrypted service
         backups expire automatically within 30 days.</li>
   </ul>
@@ -200,6 +226,9 @@
         location, start and stop live sharing at any time, and decide each
         time whether to send a dropped pin; leave a circle at any time; block
         and report members; delete your own text and pin messages.</li>
+    <li><strong>Notification controls:</strong> turn push off for the device,
+        separately disable messages or circle activity, and choose whether
+        message text may appear in lock-screen previews.</li>
     <li><strong>Delete your account:</strong> in the app (Circle tab →
         Delete account) or via our
         <a href="delete-account.html">deletion page</a>. Deletion is
